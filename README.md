@@ -3,12 +3,14 @@ CacheAdapter
 This library does not implement any functionality on its own it is written to help communicate better with the Nettecache library.
 It is only an adapter that streamlines caching using the file storage. 
 
-###Requirements
+Requirements
+=========================
 - Php >= 5.4
 
 - Composer
 
-###Installation
+Installation
+==========================
 - Open your default terminal program
 
 - Change your working directory to the project directory you wish to use this library in.
@@ -27,7 +29,8 @@ It is only an adapter that streamlines caching using the file storage.
     
 - That's all
 
-###Usage
+Usage
+=============================
 Using this library can be as easy as:
     
 * Initialize the Cache Library and set the absolute or relative path of where you want the cache to be saved to
@@ -70,7 +73,8 @@ Using this library can be as easy as:
             
             
             
-##Credits
+Credits
+===============================
 - [David Grudl](https://davidgrudl.com/)
     
         
