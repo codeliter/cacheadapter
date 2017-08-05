@@ -1,0 +1,23 @@
+{
+    "name": "codeliter/cacheadapter",
+    "description": "An adapter for using the Nette Caching Component",
+    "keywords": ["caching", "nette", "adapter"],
+    "license": "DBAD",
+    "authors": [{
+        "name": "Abolarin Stephen",
+        "email": "cod3liter@gmail.com"
+    }],
+    "type": "project",
+    "require": {
+        "php": ">=5.4",
+        "nette/caching": "3.0.0-beta"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codeliter\\CacheAdapter\\": "src/"
+        }
+    }
+}
