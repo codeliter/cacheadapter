@@ -44,6 +44,7 @@ Using this library can be as easy as:
         $cache->save($cache_name, $data, '4 Hours');
         
 * You can get anything from the Cache
+
         $cache_name = 'test_cache';
         $data = $cache->get($cache_name);
         
