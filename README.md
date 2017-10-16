@@ -1,15 +1,13 @@
 CacheAdapter
 =============================================
 This library does not implement any functionality on its own it is written to help communicate better with the Nettecache library.
-It is only an adapter that streamlines caching using memcached or file storage. 
+It is only an adapter that streamlines caching using the file storage. 
 
 Requirements
 =========================
 - Php >= 5.4
 
 - Composer
-
-- Php Memcached extension(Optional)
 
 Installation
 ==========================
@@ -36,8 +34,6 @@ Usage
 Using this library can be as easy as:
     
 * Initialize the Cache Library and set the absolute or relative path of where you want the cache to be saved to
-     
-     -If your server has Memcached loaded it uses memcached by default.
 
         $cache = new Codeliter\CacheAdapter\Cache('./data/cache');
         
