@@ -10,6 +10,7 @@ namespace Codeliter\CacheAdapter;
 
 use Nette\Caching\Cache as NetteCache;
 use Nette\Caching\Storages\FileStorage as NetteCacheStorage;
+use Nette\Caching\Storages\NewMemcachedStorage as MemCachedStorage;
 
 
 class Cache implements CacheInterface
@@ -21,26 +22,53 @@ class Cache implements CacheInterface
     protected $cache;
 
     /**
+     * @var
+     */
+    protected $storage;
+
+    /**
      * Initialize everything to make the Caching work
      * Cache constructor.
-     * @param $cache_save_path
+     * @param string $cache_save_path
      * @throws \Error
      */
-    public function __construct($cache_save_path)
+    public function __construct($cache_save_path = '')
     {
-        // If the path is empty
-        if (strlen($cache_save_path) == 0)
+        // If Memcached module is properly installed
+        if (class_exists('Memcached'))
+            $type = 'MEMORY';
+        else
+            $type = 'FILE';
+        // Set the storage
+        $this->setStorageType($type, $cache_save_path);
+
+        // If the Storage type is file type & the path is empty
+        if ($type == 'FILE' && strlen($cache_save_path) == 0)
             throw new \Error('Please set a valid path to store cache in');
 
-        // If the Cache storage does not exist
-        if (!file_exists($cache_save_path))
+        // If the Storage type is file type & Cache storage does not exist
+        if ($type == 'FILE' && !file_exists($cache_save_path))
             throw new \Error('Cache save path could not be opened!');
 
-        // Set the storage
-        $storage = new NetteCacheStorage($cache_save_path);
-
         // Initialize the Cache
-        $this->cache = new NetteCache($storage);
+        $this->cache = new NetteCache($this->storage);
+    }
+
+    /**
+     * Set the storage Type
+     * @param string $type
+     * @param $path
+     */
+    private function setStorageType($type = '', $path = '')
+    {
+        switch ($type) {
+            case 'MEMORY':
+                $this->storage = new MemCachedStorage();
+                break;
+            default:
+                $this->storage = new NetteCacheStorage($path);
+                break;
+        }
     }
 
     /**
@@ -73,7 +101,7 @@ class Cache implements CacheInterface
 
         // If the Cache does not exist
         if ($value === null) {
-            throw new \Error('Cache item was does not exist');
+            throw new \Error('Cache item does not exist');
         }
 
         return $value;
