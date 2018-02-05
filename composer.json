@@ -6,7 +6,7 @@
     "nette",
     "adapter"
   ],
-  "license": "DBAD",
+  "license": "MIT",
   "authors": [
     {
       "name": "Abolarin Stephen",
