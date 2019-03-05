@@ -10,7 +10,7 @@ namespace Codeliter\CacheAdapter;
 
 use Nette\Caching\Cache as NetteCache;
 use Nette\Caching\Storages\FileStorage as NetteCacheStorage;
-use Nette\Caching\Storages\NewMemcachedStorage;
+use Nette\Caching\Storages\MemcachedStorage;
 
 
 class Cache implements CacheInterface
@@ -63,7 +63,7 @@ class Cache implements CacheInterface
     {
         switch ($type) {
             case 'MEMORY':
-                $this->storage = new NewMemcachedStorage('127.0.0.1', 11211);
+                $this->storage = new MemcachedStorage();
                 break;
             default:
                 $this->storage = new NetteCacheStorage($path);
