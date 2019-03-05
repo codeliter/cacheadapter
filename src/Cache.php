@@ -11,6 +11,7 @@ namespace Codeliter\CacheAdapter;
 use Nette\Caching\Cache as NetteCache;
 use Nette\Caching\Storages\FileStorage as NetteCacheStorage;
 use Nette\Caching\Storages\MemcachedStorage;
+use Nette\Caching\Storages\NewMemcachedStorage;
 
 
 class Cache implements CacheInterface
@@ -63,7 +64,7 @@ class Cache implements CacheInterface
     {
         switch ($type) {
             case 'MEMORY':
-                $this->storage = new MemcachedStorage();
+                $this->storage = new NewMemcachedStorage();
                 break;
             default:
                 $this->storage = new NetteCacheStorage($path);
@@ -76,7 +77,8 @@ class Cache implements CacheInterface
      * This would overwrite any item with the same name in the cache
      * @param $cache_name
      * @param $cache_data
-     * @param $expires
+     * @param string $expires
+     * @throws \Throwable
      */
     public function save($cache_name, $cache_data, $expires = '')
     {

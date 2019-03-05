@@ -4,33 +4,33 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa6c3baf0dc80e782285ed1039d539b5",
+    "content-hash": "f9697ea7d963d09f633a7a2cf175b1d8",
     "packages": [
         {
             "name": "nette/caching",
-            "version": "v3.0.0",
+            "version": "v2.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/caching.git",
-                "reference": "d1abc4216f1cd42263c266af1907bbcbda4094c9"
+                "reference": "7fba7c7ab2585fafb7b31152f2595e1551120555"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/caching/zipball/d1abc4216f1cd42263c266af1907bbcbda4094c9",
-                "reference": "d1abc4216f1cd42263c266af1907bbcbda4094c9",
+                "url": "https://api.github.com/repos/nette/caching/zipball/7fba7c7ab2585fafb7b31152f2595e1551120555",
+                "reference": "7fba7c7ab2585fafb7b31152f2595e1551120555",
                 "shasum": ""
             },
             "require": {
-                "nette/finder": "^2.4 || ~3.0.0",
+                "nette/finder": "^2.2 || ~3.0.0",
                 "nette/utils": "^2.4 || ~3.0.0",
-                "php": ">=7.1"
+                "php": ">=5.6.0"
             },
             "conflict": {
                 "nette/nette": "<2.2"
             },
             "require-dev": {
                 "latte/latte": "^2.4",
-                "nette/di": "^v3.0.0-beta2",
+                "nette/di": "^2.4 || ~3.0.0",
                 "nette/tester": "^2.0",
                 "tracy/tracy": "^2.4"
             },
@@ -40,7 +40,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.5-dev"
                 }
             },
             "autoload": {
@@ -73,7 +73,7 @@
                 "nette",
                 "sqlite"
             ],
-            "time": "2019-02-05T21:28:16+00:00"
+            "time": "2018-03-21T11:04:32+00:00"
         },
         {
             "name": "nette/finder",
@@ -1604,7 +1604,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1"
+        "php": ">=5.6.0"
     },
     "platform-dev": []
 }
